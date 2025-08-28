@@ -3,7 +3,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: 'Arial Black', 'Impact', sans-serif;
-    background: #000; /* fallback background color */
+    background-image: url('../images/merger.jpg');
 }
 
 /* Overlay for contrast */
@@ -34,7 +34,7 @@ html, body {
     z-index: 2;
 
     /* Background image behind overlay */
-    background-image: url('../images/merger.jpg');
+    background-image: url('../images/effect.avif');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
