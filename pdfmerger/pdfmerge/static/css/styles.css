@@ -25,11 +25,11 @@ html, body {
     width: 400px;
     padding: 40px;
     background: rgba(0, 0, 0, 0.75); /* stronger opacity for readability */
-    border: 2px solid #00ffcc;
+    border: 2px solid #FFD700; /* gold border */
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 0 20px #00ffcc;
-    color: #ffffff;
+    box-shadow: 0 0 20px #FFD700; /* gold glow */
+    color: #FFFFFF;
     position: relative;
     z-index: 2;
 
@@ -45,8 +45,8 @@ html, body {
 h1 {
     margin-bottom: 30px;
     font-size: 2rem;
-    color: #00ffcc;
-    text-shadow: 2px 2px #0055aa;
+    color: #FFD700; /* gold */
+    text-shadow: 2px 2px #A0522D; /* brown shadow */
 }
 
 /* Form styling */
@@ -56,51 +56,52 @@ form {
     gap: 20px;
 }
 
+/* Labels */
+label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #FFD700; /* gold */
+}
+
+label:hover {
+    color: #FFF5E1; /* nude */
+    text-shadow: 1px 1px #A0522D;
+}
+
 /* File input */
 input[type="file"] {
     padding: 10px;
     border-radius: 6px;
-    border: 2px solid #00ffcc;
-    background: rgba(0, 0, 0, 0.2);
-    color: #ffffff;
+    border: 2px solid #FFD700; /* gold */
+    background: rgba(255, 245, 225, 0.1); /* nude */
+    color: #FFFFFF; /* white text */
     text-align: center;
     cursor: pointer;
     transition: 0.3s all;
 }
 
 input[type="file"]:hover {
-    background: rgba(0, 255, 204, 0.1);
-    border-color: #00ffcc;
+    background: rgba(255, 215, 0, 0.15); /* light gold hover */
+    border-color: #FFD700;
 }
 
-/* Submit button with green→blue gradient */
+/* Submit button */
 button {
     padding: 12px;
-    background: linear-gradient(45deg, #00ff66, #0066ff);
-    color: white;
-    border: 2px solid #ffffff;
+    background: linear-gradient(45deg, #FFD700, #FFF5E1); /* gold → nude */
+    color: #A0522D; /* brown text */
+    border: 2px solid #FFD700;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s all;
-    text-shadow: 1px 1px #000;
-    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+    text-shadow: 1px 1px #A0522D;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
 }
 
 button:hover {
-    background: linear-gradient(45deg, #0066ff, #00ff66);
+    background: linear-gradient(45deg, #FFF5E1, #FFD700);
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 255, 204, 0.6);
-}
-
-
-label {
-    color: #00ffcc;; /* bright green start */
-    text-shadow: 1px 1px #0066ff; /* subtle blue shadow */
-}
-
-label:hover {
-    color: #0066ff; /* hover turns blue */
-    text-shadow: 1px 1px #00ffcc;;
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
 }
