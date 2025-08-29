@@ -29,6 +29,11 @@ def merge_pdfs(request):
         with open(output_path, "wb") as out:
             merger.write(out)
         merger.close()
+        
+        # Delete uploaded files
+        for path in file_paths:
+            if os.path.exists(path):
+                os.remove(path)
 
         # Serve merged PDF for download
         return FileResponse(open(output_path, "rb"), as_attachment=True, filename="merged.pdf")
