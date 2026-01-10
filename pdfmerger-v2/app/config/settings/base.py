@@ -1,6 +1,4 @@
 from pathlib import Path
-import os
-from django.core.management.utils import get_random_secret_key
 
 # -----------------------
 # Paths
@@ -10,13 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # -----------------------
 # SECURITY
 # -----------------------
-# Secret key from environment or fallback to random key
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
+SECRET_KEY = 'django-insecure-#4+dnsy(w+6sc2-k=4peb&#6a$k+#g+w*4ndpd9^e*6&e+#q-k'
 
-DEBUG = False
-
-# Replace with your domain(s) or server IPs
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', "*").split(',')
 
 # -----------------------
 # Installed apps
@@ -31,7 +24,7 @@ INSTALLED_APPS = [
 # -----------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # <-- WhiteNoise for static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
@@ -67,16 +60,7 @@ DATABASES = {}
 # Static files (for production)
 # -----------------------
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # where collectstatic will put files
-
-# -----------------------
-# Security headers for production
-# -----------------------
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_BROWSER_XSS_FILTER = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-X_FRAME_OPTIONS = 'DENY'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # -----------------------
 # Timezone & localization
