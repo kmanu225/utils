@@ -6,24 +6,31 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Set work directory
-WORKDIR /app
+WORKDIR /srv/the-merger
 
-# Install system dependencies
+# System deps
 RUN apt-get update && apt-get install -y \
     build-essential \
     libmagic1 \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
+# Create non-root user
+RUN useradd -m -s /bin/bash django
 COPY app/ .
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
 
-# Collect static files (now WhiteNoise can handle them)
-RUN python manage.py collectstatic --noinput
+# Install Python deps
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
 
-# Expose port
+# Create static directory
+RUN mkdir -p staticfiles \
+    && chown -R django:django /srv/the-merger
+
+# Switch user
+USER django
+
 EXPOSE 8000
 
-# Start the application
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+# Use exec (JSON) form
+RUN chmod +x entrypoint.sh
+CMD ["./entrypoint.sh"]
