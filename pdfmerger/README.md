@@ -49,12 +49,12 @@ python manage.py runserver
 Build and run the Docker container:
 
 ```bash
-docker build -t the-merger .
-docker run -d -p 8000:8000 the-merger:latest
+docker build -t pdfmerger .
+docker run -d -p 8000:8000 pdfmerger:latest
 ```
 
 ## Docker Image
 
 The latest prebuilt Docker image is available on Docker Hub:
 
-👉 https://hub.docker.com/r/kmanu225/the-pdf-merger
+👉 https://hub.docker.com/r/kmanu225/pdfmerger
