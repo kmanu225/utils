@@ -1,4 +1,4 @@
 Django>=5.2
 gunicorn
-pypdf
+pypdf>=6.6.2
 whitenoise

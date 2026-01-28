@@ -1,5 +1,5 @@
 # Base image
-FROM python:3.10-slim
+FROM python:alpine
 
 # Environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -8,14 +8,8 @@ ENV PYTHONUNBUFFERED=1
 # Set work directory
 WORKDIR /srv/the-merger
 
-# System deps
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libmagic1 \
-    && rm -rf /var/lib/apt/lists/*
-
 # Create non-root user
-RUN useradd -m -s /bin/bash django
+RUN adduser -D -s /bin/bash django
 COPY app/ .
 
 # Install Python deps
