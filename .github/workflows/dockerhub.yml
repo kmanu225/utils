@@ -29,5 +29,5 @@ jobs:
           file: ./pdfmerger/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/the-pdf-merger:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/pdfmerger:latest
 
